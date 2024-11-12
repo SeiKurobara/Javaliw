@@ -14,4 +14,11 @@ public class SquareCalculator {
             return input * input;
         });
     }
+
+    public Future<Integer> addition(Integer input){
+        return executorService.submit(()->{
+            Thread.sleep(10000);
+            return input + input;
+        });
+    }
 }
