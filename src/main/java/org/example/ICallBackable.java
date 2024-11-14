@@ -1,5 +1,5 @@
 package org.example;
 
-public interface ICallBackable {
-    String onComplete(String sample);
+public interface ICallBackable<T> {
+    T onComplete(T params);
 }

@@ -1,11 +1,13 @@
 package org.example;
 
-public class CallbackDriver {
-    ICallBackable callback;
-    public CallbackDriver(ICallBackable callback) {
+public class CallbackDriver<T> {
+    ICallBackable<T> callback;
+    T value;
+    public CallbackDriver(ICallBackable<T> callback, T value) {
         this.callback = callback;
+        this.value = value;
     }
-    public String executeCallback(){
+    public T executeCallback(){
         System.out.println("Callback Start");
         try{
             Thread.sleep(2000);
@@ -13,6 +15,7 @@ public class CallbackDriver {
             e.printStackTrace();
         }
         System.out.println("The Process is Complete");
-        return callback.onComplete("The Task is Complete");
+//        return callback.onComplete("The Task is Complete");
+        return callback.onComplete(this.value);
     }
 }
