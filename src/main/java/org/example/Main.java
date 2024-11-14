@@ -7,5 +7,12 @@ import java.util.concurrent.Future;
 public class Main {
     public static void main(String[] args){
         System.out.println("Main Branch");
+        CallbackDriver callbackDriver = new CallbackDriver(new ICallBackable() {
+            @Override
+            public String onComplete(String sample) {
+                return sample;
+            }
+        });
+        System.out.println(callbackDriver.executeCallback());
     }
 }
